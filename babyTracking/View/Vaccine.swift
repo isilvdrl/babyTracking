@@ -8,21 +8,19 @@
 import SwiftUI
 
 struct Vaccine: View {
+
+    @State var currentDate: Date = Date()
     var body: some View {
-        ZStack{
-            Color.gray.edgesIgnoringSafeArea(.all)
-            VStack{
-                Text("Aşı Takvimi")
-                    .font(.title)
-                    .foregroundStyle(.black)
-                Spacer()
-                
-                
+        ScrollView(.vertical , showsIndicators: false){
+            VStack(spacing: 20){
+                CustomDatePicker(currentDate: $currentDate)
             }
         }
+     
     }
 }
 
 #Preview {
     Vaccine()
 }
+
